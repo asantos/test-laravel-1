@@ -1,6 +1,6 @@
 @extends('layouts.default')
 @section('body')
 
-CCC
+post number {!! $post_id !!}
 
 @stop

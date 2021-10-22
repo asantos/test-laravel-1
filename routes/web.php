@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,20 +16,23 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [
     App\Http\Controllers\HomeController::class, 'userWelcome'
-]);
+])->name('site.index');
 
 Route::post('/register', [
     App\Http\Controllers\HomeController::class, 'userRegister'
-]);
+])->name('site.index.register');
 
 Route::get('/aaa', function () {
     return view('aaa');
-})->name('aaa');
+})->name('site.aaa');
 
 Route::get('/bbb', function () {
     return view('bbb');
-})->name('bbb');
+})->name('site.bbb');
 
-Route::get('/ccc', function () {
-    return view('ccc');
-})->name('ccc');
+Route::get('/posts', function () {
+    return view('posts');
+})->name('site.posts');
+
+Route::get('/posts/{post_id}', [HomeController::class, 'single'])
+    ->name('site.posts.single');

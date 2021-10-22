@@ -15,17 +15,10 @@
                     </a>
 
                     <ul class="nav nav-pills">
-                        <li class="nav-item"><a href="https://test-laravel-1.test/" class="nav-link active" aria-current="page">Home</a></li>
-                        <!--
-                        TODO: Change active state depending on current section
-                        -->
-                        <li class="nav-item"><a href="https://test-laravel-1.test/aaa" class="nav-link
-                        @if (Route::has('aaa'))
-                                active
-                        @endif
-                        ">AAA</a></li>
-                        <li class="nav-item"><a href="https://test-laravel-1.test/bbb" class="nav-link">BBB</a></li>
-                        <li class="nav-item"><a href="https://test-laravel-1.test/ccc" class="nav-link">CCC</a></li>
+                        <li class="nav-item"><a href="{{ route('site.index')  }}" class="nav-link {{ (request()->route()->getName() == 'site.index') ? 'active' : '' }}">Home</a></li>
+                        <li class="nav-item"><a href="{{ route('site.aaa')  }}" class="nav-link {{ (request()->route()->getName() == 'site.aaa') ? 'active' : '' }}">AAA</a></li>
+                        <li class="nav-item"><a href="{{ route('site.bbb')  }}" class="nav-link {{ (request()->route()->getName() == 'site.bbb') ? 'active' : '' }}">BBB</a></li>
+                        <li class="nav-item"><a href="{{ route('site.posts')  }}" class="nav-link {{ (request()->route()->getName() == ('site.posts' || 'site.posts.single')) ? 'active' : '' }}">Posts</a></li>
                     </ul>
                 </header>
             </div>
