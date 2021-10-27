@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Posts;
 use Illuminate\Contracts\View\View;
 //use Illuminate\Http\Request;
 //use Illuminate\Support\Facades\Log;
@@ -29,8 +30,8 @@ class HomeController extends Controller
 
     function single(string $post_id): View
     {
-//        Log::alert(message: 'hey');
-        return view('single', compact('post_id'));
+        $post = Posts::find($post_id);
+        return view('single', compact('post'));
     }
 
 }

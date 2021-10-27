@@ -34,5 +34,4 @@ Route::get('/posts', function () {
     return view('posts');
 })->name('site.posts');
 
-Route::get('/posts/{post_id}', [HomeController::class, 'single'])
-    ->name('site.posts.single');
+Route::get('/posts/{post_id}', [HomeController::class, 'single'])->name('site.posts.single');

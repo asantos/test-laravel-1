@@ -1,6 +1,7 @@
 @extends('layouts.default')
 @section('body')
 
-post number {!! $post_id !!}
+    <h1>{!! $post->title !!}</h1>
+    <p>{!! $post->body !!}</p>
 
 @stop
