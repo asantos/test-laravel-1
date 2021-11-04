@@ -2,7 +2,9 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
+//use PHPUnit\Framework\TestCase;
+use App\Models\Posts;
+use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
@@ -13,6 +15,9 @@ class ExampleTest extends TestCase
      */
     public function test_example()
     {
-        $this->assertTrue(true);
+
+        $post = Posts::first();
+        $view = $this->view('single', compact('post'));
+        $view->assertSee('Posts');
     }
 }

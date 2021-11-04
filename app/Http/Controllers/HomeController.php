@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Posts;
 use Illuminate\Contracts\View\View;
+
 //use Illuminate\Http\Request;
 //use Illuminate\Support\Facades\Log;
 
 class HomeController extends Controller
 {
 
-    function userWelcome()
+    public function userHome()
     {
         $coupon = request()->query('coupon');
         $email = false;
@@ -20,7 +21,7 @@ class HomeController extends Controller
         ));
     }
 
-    function userRegister()
+    public function userRegister()
     {
         $email = request()->get('email');
         return view('home', compact(
@@ -28,10 +29,10 @@ class HomeController extends Controller
         ));
     }
 
-    function single(string $post_id): View
+    public function single(string $post_id, string $test = null): View
     {
         $post = Posts::find($post_id);
-        return view('single', compact('post'));
+        return view('single', compact('post', 'test'));
     }
 
 }

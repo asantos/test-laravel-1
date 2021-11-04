@@ -13,13 +13,13 @@
                     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                         <span class="fs-4">Mentorship demo</span>
                     </a>
-
                     <ul class="nav nav-pills">
-                        <li class="nav-item"><a href="{{ route('site.index')  }}" class="nav-link {{ (request()->route()->getName() == 'site.index') ? 'active' : '' }}">Home</a></li>
-                        <li class="nav-item"><a href="{{ route('site.aaa')  }}" class="nav-link {{ (request()->route()->getName() == 'site.aaa') ? 'active' : '' }}">AAA</a></li>
-                        <li class="nav-item"><a href="{{ route('site.bbb')  }}" class="nav-link {{ (request()->route()->getName() == 'site.bbb') ? 'active' : '' }}">BBB</a></li>
-                        <li class="nav-item"><a href="{{ route('site.posts')  }}" class="nav-link {{ (request()->route()->getName() == ('site.posts' || 'site.posts.single')) ? 'active' : '' }}">Posts</a></li>
+                        {{ NavBar::link('site.index', 'Home', 'site.index') }}
+                        {{ NavBar::link('site.aaa', 'AAA', 'site.aaa') }}
+                        {{ NavBar::link('site.bbb', 'BBB', 'site.bbb') }}
+                        {{ NavBar::link('site.posts', 'Posts', 'site.posts') }}
                     </ul>
+
                 </header>
             </div>
             <div class="container">
